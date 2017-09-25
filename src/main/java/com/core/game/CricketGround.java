@@ -1,13 +1,13 @@
 package com.core.game;
 
 public class CricketGround {
-private String name;
+private String groundname;
 
 public String getGroundName() {
-	return name;
+	return groundname;
 }
 
 public void setGroundName(String name) {
-	this.name = name;
+	this.groundname = name;
 }
 }
