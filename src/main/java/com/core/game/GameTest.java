@@ -1,17 +1,16 @@
 package com.core.game;
 
+import org.apache.log4j.Logger;
+
 import com.core.game.dao.CricketGameData;
-import com.google.gson.Gson;
 
 public class GameTest {
-	
+	final static Logger logger=Logger.getLogger(GameTest.class);
 	public static void main(String s[]) {
-		int testid=20;
+		int testid=2;
 		CricketGameData dao=new CricketGameData();
 		CricketFieldPixel pixel=dao.getFieldPosition(testid);
-		Gson gson=new Gson();
-		String jsonString=gson.toJson(pixel);
-		System.out.println(jsonString);
+		logger.info(pixel.getId()+"::"+pixel.getName());
 	}
 
 }

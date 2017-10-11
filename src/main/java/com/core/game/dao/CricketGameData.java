@@ -5,14 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import com.core.game.CricketFieldPixel;
 import com.core.game.utils.DBUtils;
 
 public class CricketGameData {
+	final static Logger logger=Logger.getLogger(CricketGameData.class);
 	
 	public CricketFieldPixel getFieldPosition(int id) {
 		
 		String query="select id,name from FieldingPositions where id=?";
+		logger.info(query);
 		CricketFieldPixel pixel=null;
 		Connection conn=null;
 		try {
@@ -26,7 +30,7 @@ public class CricketGameData {
 			pixel.setId(id);
 			pixel.setName(name);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.error("GameEngineDB", e);
 		}
 		
 		finally {
