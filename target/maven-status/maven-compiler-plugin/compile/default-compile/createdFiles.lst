@@ -1,6 +1,7 @@
-com/core/game/utils/DBUtils.class
 com/core/game/GameEngine.class
+com/core/game/CricketFieldPixel.class
+com/core/game/utils/DBUtils.class
+com/core/game/utils/PropertyFileReader.class
 com/core/game/dao/CricketGameData.class
 com/core/game/GameTest.class
 com/core/game/CricketGround.class
-com/core/game/CricketFieldPixel.class

@@ -4,23 +4,25 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 public class DBUtils {
-	
+	final static Logger logger = Logger.getLogger(DBUtils.class);
+
 	public static Connection getConnection() {
-		Connection conn=null;
+		Connection conn = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			String url="jdbc:sqlite:/home/abhilash/Documents/CricketGame";
-			conn=DriverManager.getConnection(url);
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
+			String jdbcDriver=PropertyFileReader.getPropFileReader().getValue("DB.JDBCDRIVER");
+			String dburl=PropertyFileReader.getPropFileReader().getValue("DB.URL");
+			Class.forName(jdbcDriver);
+			String url = dburl;
+			conn = DriverManager.getConnection(url);
+		} catch (SQLException e) {
+			logger.error("GameEngineDB", e);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+			logger.error("GameEngineDB", e);
+		}
 		return conn;
 	}
-	
 
 }

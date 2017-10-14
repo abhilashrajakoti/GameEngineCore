@@ -10,7 +10,7 @@ public class GameEngine {
 	public CricketFieldPixel getFieldInfo(int id) {
 		CricketGameData dao = new CricketGameData();
 		CricketFieldPixel pixel = dao.getFieldPosition(id);
-		logger.info(pixel);
+		logger.info(pixel.getName());
 		return pixel;
 	}
 
